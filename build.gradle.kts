@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "1.4.21"
+    `maven-publish`
 }
 
 group = "me.yujinyan"
