@@ -8,6 +8,7 @@ version = "0.0.1"
 
 kotlin {
     explicitApi()
+
 }
 
 repositories {
@@ -20,6 +21,11 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         freeCompilerArgs = listOf("-Xjsr305=strict", "-Xallow-kotlin-package")
         jvmTarget = "1.8"
     }
+}
+
+tasks.kotlinSourcesJar {
+    archiveClassifier.set("sources")
+    from(sourceSets.main)
 }
 
 tasks.withType<Test> {
