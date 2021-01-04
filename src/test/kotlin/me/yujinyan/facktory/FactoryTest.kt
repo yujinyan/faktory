@@ -34,17 +34,26 @@ class FactoryTest {
         val postFactory = factory<Post>()
 
         postFactory.make {
-            Post::title by {"Hello World!"}
+            Post::title by { "Hello World!" }
         }.title shouldBe "Hello World!"
 
         postFactory.make {
-            Post::title by {"Bonjour!"}
+            Post::title by { "Bonjour!" }
         }.title shouldBe "Bonjour!"
 
         postFactory.make(3) {
-            Post::title by {"Hello World!"}
+            Post::title by { "Hello World!" }
         }.shouldHaveSize(3).forEach {
             it.title shouldBe "Hello World!"
         }
+    }
+
+    @Test
+    fun `can customize nested field`() {
+        val postFactory = factory<Post>()
+
+        postFactory.make {
+            Post::author / Author::name by { "Peter Parker" }
+        }.author.name shouldBe "Peter Parker"
     }
 }

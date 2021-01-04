@@ -3,15 +3,15 @@ package me.yujinyan.facktory
 import com.github.javafaker.Faker
 import java.util.*
 
-class IdGenerator(private var current: Int = 1) {
-    fun nextId(): Int = current++
+public class IdGenerator(private var current: Int = 1) {
+    public fun nextId(): Int = current++
 }
 
-class MyFaker(locale: Locale) : Faker(locale) {
+public class MyFaker(locale: Locale) : Faker(locale) {
     private val idGenerator = IdGenerator()
-    fun nextId() = idGenerator.nextId()
+    public fun nextId(): Int = idGenerator.nextId()
 
-    fun topic() = listOf(
+    public fun topic(): String = listOf(
         "宅家的得闲饮茶时间",
         "美食翻车也是艺术品",
         "周末在家做什么vol2",

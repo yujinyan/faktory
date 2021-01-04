@@ -5,6 +5,10 @@ plugins {
 group = "me.yujinyan"
 version = "0.0.1"
 
+kotlin {
+    explicitApi()
+}
+
 repositories {
     mavenCentral()
 }
@@ -12,8 +16,8 @@ repositories {
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions {
-        freeCompilerArgs += listOf("-Xjsr305=strict", "-Xallow-kotlin-package")
-        jvmTarget = "11"
+        freeCompilerArgs = listOf("-Xjsr305=strict", "-Xallow-kotlin-package")
+        jvmTarget = "1.8"
     }
 }
 
