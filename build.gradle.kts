@@ -23,13 +23,14 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     }
 }
 
-tasks.kotlinSourcesJar {
-    archiveClassifier.set("sources")
-    from(sourceSets.main)
-}
-
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        create("maven")
+    }
 }
 
 dependencies {
