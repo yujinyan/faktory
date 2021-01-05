@@ -29,7 +29,7 @@ tasks.withType<Test> {
 
 publishing {
     publications {
-        create("maven")
+        create<MavenPublication>("maven")
     }
 }
 
