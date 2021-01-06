@@ -30,6 +30,17 @@ class FactoryTest {
     }
 
     @Test
+    fun `can customize on per factory basis`() {
+        val factory = factory<Post> {
+            Post::title by { "Hello World!" }
+        }
+
+        factory.make().title shouldBe "Hello World!"
+        factory.make { Post::title by { "Bonjour!" } }
+            .title shouldBe "Bonjour!"
+    }
+
+    @Test
     fun `can customize on per call basis`() {
         val postFactory = factory<Post>()
 

@@ -10,14 +10,21 @@ import kotlin.reflect.KProperty1
 /**
  * Helper function to obtain a factory to generate instances of class [T]
  */
-public inline fun <reified T : Any> factory(): Factory<T> = Factory(T::class)
+public inline fun <reified T : Any> factory(
+    noinline block: (Factory.Config.() -> Unit)? = null
+): Factory<T> = Factory(T::class, block)
 
 /**
  * Factory that generates instances of [T].
  */
-public class Factory<T : Any>(private val kClass: KClass<T>) {
+public class Factory<T : Any>(private val kClass: KClass<T>, block: (Config.() -> Unit)? = null) {
 
-    private val tempGeneratorValueMap = mutableMapOf<String, () -> Any>()
+    private val tempGeneratorValueMap = mutableMapOf<String, () -> Any>().apply {
+        block?.let {
+            val config = Config().apply(it)
+            putAll(config.generators)
+        }
+    }
 
     private val easyRandomParameters = EasyRandomParameters()
         .randomize(Int::class.java) { (1..9999).random() }
