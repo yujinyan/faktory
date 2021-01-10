@@ -3,7 +3,10 @@ package me.yujinyan.facktory.text
 import java.io.File
 
 internal fun readTextsUnderResourcePath(path: String) = sequence {
-    File(javaClass.getResource(path).toURI()).walkTopDown()
+    val resource = javaClass.getResource(path)
+        ?: throw IllegalArgumentException("No resource found under $path")
+
+    File(resource.toURI()).walkTopDown()
         .filter { it.isFile }
         .forEach {
             yield(it.readText())
