@@ -17,7 +17,7 @@ public class MarkovGenerator(private val n: Int) {
             }
     }
 
-    public fun feedResourcesText(path: String): Unit = readTextsUnderResourcePath(path)
+    public fun feedTextResource(path: String): Unit = readTextResource(path)
         .forEach { feed(it) }
 
     public fun generate(length: Int): String = buildString {

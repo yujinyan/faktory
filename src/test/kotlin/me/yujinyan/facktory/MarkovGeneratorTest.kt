@@ -8,7 +8,7 @@ class MarkovGeneratorTest {
     @Test
     fun `can read text from resources`() {
         val generator = MarkovGenerator(3).apply {
-            feedResourcesText("/factory/text/cn")
+            feedTextResource("/factory/text/cn")
         }
         repeat(3) {
             generator.generate(60).also { println(it) }

@@ -4,25 +4,25 @@ import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.sequences.shouldContain
 import io.kotest.matchers.sequences.shouldHaveSize
 import io.kotest.matchers.string.shouldContain
-import me.yujinyan.facktory.text.readTextsUnderResourcePath
+import me.yujinyan.facktory.text.readTextResource
 import org.junit.jupiter.api.Test
 
 class FileReaderTest {
     @Test
     fun `can read path`() {
-        readTextsUnderResourcePath("/factory/text/en")
+        readTextResource("/factory/text/en")
             .shouldContain("Hello World!")
     }
 
     @Test
     fun `can read path with trailing slash`() {
-        readTextsUnderResourcePath("/factory/text/en/")
+        readTextResource("/factory/text/en/")
             .shouldContain("Hello World!")
     }
 
     @Test
     fun `can read file`() {
-        readTextsUnderResourcePath("/factory/text/en/Hello.txt")
+        readTextResource("/factory/text/en/Hello.txt")
             .apply {
                 shouldHaveSize(1)
                 shouldContain("Hello World!")
@@ -32,7 +32,7 @@ class FileReaderTest {
     @Test
     fun `throws exception if provided non-existent path`() {
         shouldThrow<IllegalArgumentException> {
-            readTextsUnderResourcePath("/does/not/exist").first()
+            readTextResource("/does/not/exist").first()
         }.message shouldContain "/does/not/exist"
     }
 }
