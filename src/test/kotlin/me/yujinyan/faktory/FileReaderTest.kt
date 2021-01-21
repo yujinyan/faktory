@@ -1,10 +1,10 @@
-package me.yujinyan.facktory
+package me.yujinyan.faktory
 
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.sequences.shouldContain
 import io.kotest.matchers.sequences.shouldHaveSize
 import io.kotest.matchers.string.shouldContain
-import me.yujinyan.facktory.text.readTextResource
+import me.yujinyan.faktory.text.readTextResource
 import org.junit.jupiter.api.Test
 
 class FileReaderTest {

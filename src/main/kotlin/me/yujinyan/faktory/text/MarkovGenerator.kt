@@ -1,4 +1,4 @@
-package me.yujinyan.facktory.text
+package me.yujinyan.faktory.text
 
 import kotlin.random.Random
 

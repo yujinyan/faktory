@@ -1,4 +1,4 @@
-package me.yujinyan.facktory
+package me.yujinyan.faktory
 
 data class Post(
     val title: String,

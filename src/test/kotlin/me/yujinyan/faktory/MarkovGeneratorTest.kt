@@ -1,6 +1,6 @@
-package me.yujinyan.facktory
+package me.yujinyan.faktory
 
-import me.yujinyan.facktory.text.MarkovGenerator
+import me.yujinyan.faktory.text.MarkovGenerator
 import org.junit.jupiter.api.Test
 
 class MarkovGeneratorTest {
