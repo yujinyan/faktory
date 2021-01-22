@@ -1,4 +1,4 @@
-package me.yujinyan.facktory
+package me.yujinyan.faktory
 
 import org.jeasy.random.EasyRandom
 import org.jeasy.random.EasyRandomParameters

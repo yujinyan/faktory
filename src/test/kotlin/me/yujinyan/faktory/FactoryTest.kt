@@ -1,4 +1,4 @@
-package me.yujinyan.facktory
+package me.yujinyan.faktory
 
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.shouldBe

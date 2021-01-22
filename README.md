@@ -1,4 +1,5 @@
 # Faktory
+![Jitpack Release](https://jitpack.io/v/yujinyan/faktory.svg)
 
 *Faktory* implements [Object Mothers](https://martinfowler.com/bliki/ObjectMother.html) for Kotlin.
 

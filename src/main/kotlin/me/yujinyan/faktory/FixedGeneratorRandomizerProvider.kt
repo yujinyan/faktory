@@ -1,4 +1,4 @@
-package me.yujinyan.facktory
+package me.yujinyan.faktory
 
 import org.jeasy.random.DefaultRegistriesRandomizerProvider
 import org.jeasy.random.annotation.Priority

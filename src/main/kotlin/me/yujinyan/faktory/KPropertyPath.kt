@@ -1,4 +1,4 @@
-package me.yujinyan.facktory
+package me.yujinyan.faktory
 
 import kotlin.reflect.KProperty
 import kotlin.reflect.KProperty1
