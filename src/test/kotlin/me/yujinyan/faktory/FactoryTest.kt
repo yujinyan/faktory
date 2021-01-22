@@ -1,5 +1,7 @@
 package me.yujinyan.faktory
 
+import io.kotest.matchers.collections.shouldHaveAtLeastSize
+import io.kotest.matchers.collections.shouldHaveAtMostSize
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
@@ -66,5 +68,17 @@ class FactoryTest {
         postFactory.make {
             Post::author / Author::name by { "Peter Parker" }
         }.author.name shouldBe "Peter Parker"
+    }
+
+    @Test
+    fun `can configure list length`() {
+        val postFactory = factory<Post> {
+            Post::images by { factory<Image>().make(5..10) }
+        }
+
+        postFactory.make().images.apply {
+            shouldHaveAtMostSize(10)
+            shouldHaveAtLeastSize(5)
+        }
     }
 }
