@@ -50,6 +50,8 @@ public class Factory<T : Any>(private val kClass: KClass<T>, block: (Config.() -
         }
     }
 
+    public fun make(range: IntRange): Iterable<T> = make(range.random())
+
     /**
      * Generate sample data.
      *
